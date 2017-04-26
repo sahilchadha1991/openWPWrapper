@@ -71,17 +71,17 @@ def emailResults(siteList):
         msg = MIMEMultipart()
         msg.attach(part)
         msg['Subject'] = 'Wordpress Issues in ' + key
-        msg['From'] = 'SPLC_bot@ebay.com'
+        msg['From'] = 'example@example.com'
         msg['To'] = siteList[key]
         body = ("Hi,\n\n We scanned your wordpress sites for issues, "
                 "and we have attached the "
                 "issues found with this email. Please fix these issues "
                 "as soon as possible.\n\n Regards, \n SPLC Team")
         msg.attach(MIMEText(body, 'plain'))
-        server = smtplib.SMTP('atom.corp.ebay.com', 25)
+        server = smtplib.SMTP('stmp.google.com', 25)
         text = msg.as_string()
         print server.starttls()
-        print server.sendmail("SPLC_bot@ebay.com", siteList[key],
+        print server.sendmail("from@from.com", siteList[key],
                               text)
         server.quit()
 
