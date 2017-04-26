@@ -22,18 +22,13 @@ def removeCookieFile(filename):
 
 
 def readWordPressSites(file):
-    ''' wordpressSiteList = [site.strip('\n').split('-')[0]
-                       #  for site in open(file)]
-    # wordpressOwnersList = [site.strip('\n').split('-')[1]
-                           # for site in open(file)] '''
     wordpressDict = {site.strip('\n').split(' -')[0]:
                      site.strip('\n').split('- ')[1] for site in open(file)}
     return wordpressDict
 
 
-# ruby wpscan.rb --url https://stylestories.ebay.com --log stylestories
 def runWPScan():
-    # removeCookieFile('./wpscan/cache/browser/cookie-jar')
+    removeCookieFile('./wpscan/cache/browser/cookie-jar')
     siteList = readWordPressSites('wordpressSites.txt')
     print siteList
     processList = []
