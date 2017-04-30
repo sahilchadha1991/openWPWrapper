@@ -76,9 +76,9 @@ def emailResults(siteList):
         body = ("Hi,\n\n We scanned your wordpress sites for issues, "
                 "and we have attached the "
                 "issues found with this email. Please fix these issues "
-                "as soon as possible.\n\n Regards, \n SPLC Team")
+                "as soon as possible.\n\n Regards, \n Security Team")
         msg.attach(MIMEText(body, 'plain'))
-        server = smtplib.SMTP('stmp.google.com', 25)
+        server = smtplib.SMTP('smtp.google.com', 25)
         text = msg.as_string()
         print server.starttls()
         print server.sendmail("from@from.com", siteList[key],
